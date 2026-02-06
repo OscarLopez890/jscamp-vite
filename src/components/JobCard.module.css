@@ -1,0 +1,62 @@
+.jobListingCard {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+    margin: 0;
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+
+    &.is-hidden {
+        display: none;
+    }
+
+    small {
+        font-size: 0.875rem;
+        opacity: 0.75;
+        display: flex;
+        align-items: start;
+    }
+
+    p {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: start;
+        text-align: start;
+    }
+
+    h3 {
+        display: flex;
+        align-items: start;
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.applySection {
+    margin-left: auto;
+    height: fit-content;
+    align-self: center;
+
+    .aplicationMessage {
+        color: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.buttonApplyJob {
+    background: var(--primary-light);
+    margin-left: auto;
+    height: fit-content;
+    align-self: center;
+}
+
+.isApplied {
+    background: var(--button-apply);
+    pointer-events: none;
+}

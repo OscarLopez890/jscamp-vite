@@ -1,0 +1,38 @@
+/* Seccion de empleos */
+.search-container{
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 15px -3px var(--shadow);
+
+  button {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+
+  select {
+    background: var(--input-bg);
+    color: var(--text-primary);
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+    border-radius: 7px;
+    box-shadow: 0 10px 15px -3px var(--shadow);
+    border-color: #06182a;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+}
+
+.clear-button {
+  border: none;
+}
+
+.isNotActive {
+  display: none;
+}

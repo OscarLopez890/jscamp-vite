@@ -1,0 +1,31 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  a {
+    background: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+
+    &:hover, &:focus {
+      background-color: #fff;
+      color: black;
+    }
+
+    &.active {
+      transform: scale(0.90);
+    }
+
+    &.isActive {
+        background-color: var(--primary-light);
+        color: white;
+        pointer-events: none;
+    }
+  }
+}

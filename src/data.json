@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "title": "Desarrollador Frontend",
+        "company": "Tech Solutions",
+        "location": "Remoto",
+        "technologies": ["JavaScript", "React", "CSS"],
+        "description": "Desarrollar y mantener interfaces de usuario.",
+        "level": "Junior",
+        "contract": "Pasantia"
+    },
+    {
+        "id": 2,
+        "title": "Desarrollador Backend",
+        "company": "Bimbo",
+        "location": "Remoto",
+        "technologies": ["JavaScript", "React", "Node.js"],
+        "description": "Desarrollar y mantener interfaces de usuario y servicios backend.",
+        "level": "Senior",
+        "contrato": "Medio Tiempo"
+    },
+    {
+        "id": 3,
+        "title": "Full Stack Developer",
+        "company": "Innovatech",
+        "location": "Ciudad de México",
+        "technologies": ["JavaScript", "React", "Node.js", "MongoDB"],
+        "description": "Desarrollar aplicaciones completas desde el frontend hasta el backend.",
+        "level": "Lead",
+        "contract": "FreeLance"
+    },
+    {
+        "id": 4,
+        "title": "Ingeniero de Datos",
+        "company": "DataCorp",
+        "location": "Remoto",
+        "technologies": ["Python", "SQL", "AWS"],
+        "description": "Diseñar y mantener pipelines de datos.",
+        "level": "Senior",
+        "contract": "Tiempo Completo"
+    },
+    {
+        "id": 5,
+        "title": "Desarrollador Mobile",
+        "company": "AppWorld",
+        "location": "Guadalajara",
+        "technologies": ["Kotlin", "Swift", "React Native"],
+        "description": "Desarrollar aplicaciones móviles para Android e iOS.",
+        "level": "Junior",
+        "contract": "Pasantia"
+    },
+    {
+        "id": 6,
+        "title": "DevOps Engineer",
+        "company": "CloudNet",
+        "location": "Remoto",
+        "technologies": ["Docker", "Kubernetes", "CI/CD"],
+        "description": "Implementar y mantener infraestructuras en la nube.",
+        "level": "Mid-Level",
+        "contract": "Tiempo Completo"
+    }, 
+    {
+        "id": 7,
+        "title": "QA Engineer",
+        "company": "QualityFirst",
+        "location": "Monterrey",
+        "technologies": ["Selenium", "Jest", "Cypress"],
+        "description": "Diseñar y ejecutar planes de prueba para asegurar la calidad del software.",
+        "level": "Mid-Level",
+        "contract": "Medio Tiempo"
+    }
+]
