@@ -1,6 +1,8 @@
+import styles from "./ErrorMessage.module.css"
+
 export function ErrorMessage({ message }) {
     return (
-        <div style={{ color: 'red', textAlign: 'center', marginTop: '20px' }}>
+        <div className={styles.ErrorMessage}>
             {message}
         </div>
     );

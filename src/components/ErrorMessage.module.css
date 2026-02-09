@@ -1,0 +1,7 @@
+.ErrorMessage{
+    background: var(--error-message);
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    opacity: 0.97;
+}

@@ -1,6 +1,7 @@
 import { JobResults } from "../components/JobResults.jsx";
 import { SearchFormSection } from "../components/SearchFormSection.jsx";
 import { useFilters } from "../hooks/useFilters.jsx";
+import { ErrorMessage } from "../components/ErrorMessage.jsx";
 import styles from "../components/Spinner.module.css";
 
 export function Search() {
@@ -23,7 +24,7 @@ export function Search() {
               filters={filters}
             />
             {
-              errorStatus ? <div>Error loading data. Please try again later.</div> :
+              errorStatus ? <ErrorMessage message="Error al cargar los datos, por favor intente más tarde." /> :
               loading ? <div className={styles.spinner}></div> : <JobResults 
               data={jobs}
               totalPages={totalPages}
