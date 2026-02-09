@@ -1,6 +1,8 @@
 import { useId, useState } from "react"
 import styles from "./SearchFormSection.module.css"
 
+let timeOut = null;
+
 const useSearch = ({idSearch, idTechFilter, idLocationFilter, idExperienceFilter, onSubmitSearch}) => {
     const [isActiveClear, setIsButtonClear] = useState(false);
 
@@ -18,8 +20,15 @@ const useSearch = ({idSearch, idTechFilter, idLocationFilter, idExperienceFilter
         } else {
             setIsButtonClear(true);
         }
-        
-        onSubmitSearch(searchParams)
+
+        if (event.target.name === idSearch) {
+            if (timeOut) clearTimeout(timeOut);
+            timeOut = setTimeout(() => {
+                onSubmitSearch(searchParams);
+            }, 500);
+        } else {
+            onSubmitSearch(searchParams);
+        }
     }
 
     const handleClear = (event) => {
