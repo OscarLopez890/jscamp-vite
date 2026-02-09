@@ -24,8 +24,11 @@ export function Contact(){
         }
     }, [submitted]);
 
+    const title = "DevJobs | Contacto";
+
  return (
     <main>
+        <title>{title}</title>
         <h2>Contacto</h2>
         <div className={styles.contact}>
             <section className={styles.information}>

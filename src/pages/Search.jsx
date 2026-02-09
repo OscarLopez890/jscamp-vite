@@ -16,9 +16,12 @@ export function Search() {
     handleSearch
   } = useFilters();
 
+  const title = "DevJobs | Empleos";
+
   return (
     <>
         <main className="main-empleos">
+            <title>{title}</title>
             <SearchFormSection
               onSubmitSearch={(handleSearch)}
               filters={filters}

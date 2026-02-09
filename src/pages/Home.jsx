@@ -13,8 +13,11 @@ export function Home() {
         navigateTo(url);
     };
 
+    const title = "DevJobs | Inicio";
+
   return (
     <main className="main-index">
+        <title>{title}</title>
         <section>
             <img src="src/ImagenFondo.jpg" width="200" />
             <h1>Encuentra tu próximo trabajo como desarrollador</h1>
