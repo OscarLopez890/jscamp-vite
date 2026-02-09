@@ -9,6 +9,8 @@ export function Search() {
     loading,
     totalPages,
     currentPage,
+    filters,
+    errorStatus,
     handlePageChange,
     handleSearch
   } = useFilters();
@@ -18,8 +20,10 @@ export function Search() {
         <main className="main-empleos">
             <SearchFormSection
               onSubmitSearch={(handleSearch)}
+              filters={filters}
             />
             {
+              errorStatus ? <div>Error loading data. Please try again later.</div> :
               loading ? <div className={styles.spinner}></div> : <JobResults 
               data={jobs}
               totalPages={totalPages}

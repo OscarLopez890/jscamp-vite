@@ -39,7 +39,7 @@ const useSearch = ({idSearch, idTechFilter, idLocationFilter, idExperienceFilter
 }
 
 
-export function SearchFormSection({ onSubmitSearch}) {
+export function SearchFormSection({ onSubmitSearch , filters}) {
     const idSearch = useId()
     const idTechFilter = useId()
     const idLocationFilter = useId()
@@ -54,10 +54,10 @@ export function SearchFormSection({ onSubmitSearch}) {
             <form onChange={handleSubmit}>
                 <div className={styles["search-container"]}>
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-                    <input name = {idSearch} type="text" placeholder="Escribe el nombre del puesto"/>
+                    <input name = {idSearch} type="text" placeholder="Escribe el nombre del puesto" defaultValue={filters.text}/>
                 </div>
                 <div className = {styles["select-container"]}>
-                    <select name = {idTechFilter}>
+                    <select name = {idTechFilter} defaultValue={filters.technology}>
                         <option value="">Tecnología</option>
                         <optgroup label="Lenguajes">
                             <option value="JavaScript">JavaScript</option>
@@ -79,13 +79,13 @@ export function SearchFormSection({ onSubmitSearch}) {
                         <option value="Nodejs">Node.js</option>
                         <option value="React">React</option>
                     </select>
-                    <select name = {idLocationFilter}>
+                    <select name = {idLocationFilter} defaultValue={filters.location}>
                         <option value="">Ubicación</option>
                         <option value="Remoto">Remoto</option>
                         <option value="Presencial">Presencial</option>
                         <option value="Hibrido">Híbrido</option>
                     </select>
-                    <select name = {idExperienceFilter}>
+                    <select name = {idExperienceFilter} defaultValue={filters.experience}>
                         <option value="">Nivel de experiencia</option>
                         <option value="Junior">Junior</option>
                         <option value="Mid-level">Mid-Level</option>
