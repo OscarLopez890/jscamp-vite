@@ -1,9 +1,9 @@
-import { useId, useState } from "react"
+import { useId, useState, useRef } from "react"
 import styles from "./SearchFormSection.module.css"
 
-let timeOut = null;
-
 const useSearch = ({idSearch, idTechFilter, idLocationFilter, idExperienceFilter, onSubmitSearch}) => {
+    const timeOutRef = useRef(null);
+    const formSearch = useRef();
     const [isActiveClear, setIsButtonClear] = useState(false);
 
     const handleSubmit = (event) => {
@@ -22,8 +22,8 @@ const useSearch = ({idSearch, idTechFilter, idLocationFilter, idExperienceFilter
         }
 
         if (event.target.name === idSearch) {
-            if (timeOut) clearTimeout(timeOut);
-            timeOut = setTimeout(() => {
+            if (timeOutRef.current) clearTimeout(timeOutRef.current);
+            timeOutRef.current = setTimeout(() => {
                 onSubmitSearch(searchParams);
             }, 500);
         } else {
@@ -33,8 +33,7 @@ const useSearch = ({idSearch, idTechFilter, idLocationFilter, idExperienceFilter
 
     const handleClear = (event) => {
         event.preventDefault()
-        const form = event.currentTarget.form
-        form.reset()
+        formSearch.current.reset()
         onSubmitSearch({
             text: "",
             technology: "",
@@ -44,7 +43,7 @@ const useSearch = ({idSearch, idTechFilter, idLocationFilter, idExperienceFilter
         setIsButtonClear(false);
     }
 
-    return {handleSubmit, handleClear, isActiveClear}
+    return {handleSubmit, handleClear, isActiveClear, formSearch}
 }
 
 
@@ -54,13 +53,15 @@ export function SearchFormSection({ onSubmitSearch , filters}) {
     const idLocationFilter = useId()
     const idExperienceFilter = useId()
 
-    const {handleSubmit, handleClear, isActiveClear} = useSearch({idSearch, idTechFilter, idLocationFilter, idExperienceFilter, onSubmitSearch})
+    const {handleSubmit, handleClear, isActiveClear, formSearch} = useSearch({idSearch, idTechFilter, idLocationFilter, idExperienceFilter, onSubmitSearch})
 
     return (
         <section>
             <h1>Encuentra tu próximo trabajo</h1>
             <p>Explora miles de oportunidades en el sector tecnológico</p>
-            <form onChange={handleSubmit}>
+            <form onChange={handleSubmit}
+                ref={formSearch}
+            >
                 <div className={styles["search-container"]}>
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="1"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                     <input name = {idSearch} type="text" placeholder="Escribe el nombre del puesto" defaultValue={filters.text}/>
