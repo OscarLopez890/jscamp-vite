@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer.jsx";
 
 import { Search } from "./pages/Search.jsx";
 import { Home } from "./pages/Home.jsx";
+import { JobDetail } from "./pages/Details.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
 import { Contact } from "./pages/Contact.jsx";
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/jobs/:id" element={<JobDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
