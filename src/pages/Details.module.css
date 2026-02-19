@@ -64,6 +64,9 @@
 
 .header {
   margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .title {
@@ -101,6 +104,13 @@
   opacity: 0.6;
 }
 
+.headerButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-left: auto;
+}
+
 .applyButton:disabled:hover {
   background: #666;
 }
@@ -120,6 +130,7 @@
   font-weight: bold;
   color: var(--text-primary);
   margin-bottom: 1rem;
+  justify-content: left;
 }
 
 .sectionContent {

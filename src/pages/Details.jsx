@@ -84,15 +84,19 @@ export function JobDetail(){
                     Empleos
                 </Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <span className={styles.breadcrumbCurrent}>{job.title}</span>
+                <span className={styles.breadcrumbCurrent}>{job.titulo}</span>
             </nav>
             <header className={styles.header}>
-                <h1 className={styles.title}>{job.titulo}</h1>
-                <p className={styles.meta}>{job.empresa} - {job.ubicacion}</p>
+                <div>
+                    <h1 className={styles.title}>{job.titulo}</h1>
+                    <p className={styles.meta}>{job.empresa} - {job.ubicacion}</p>
+                </div>
+                <div className={styles.headerButtons}>
+                    <button className={styles.applyButton}>
+                        Aplicar ahora
+                    </button>
+                </div>
             </header>
-            <button className={styles.applyButton}>
-                Aplicar ahora
-            </button>
             <JobSection title="Descripción del puesto" content={job.content.description} />
             <JobSection title="Responsabilidades" content={job.content.responsibilities} />
             <JobSection title="Requisitios" content={job.content.requirements} />
