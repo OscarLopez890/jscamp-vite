@@ -60,3 +60,27 @@
     background: var(--button-apply);
     pointer-events: none;
 }
+
+.jobTitle {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.detailsButton {
+    background: none;
+    color: '#09f';
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+}

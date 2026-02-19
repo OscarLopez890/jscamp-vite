@@ -1,4 +1,4 @@
-import { JobCard } from "./jobCard.jsx"
+import { JobCard } from "./JobCard.jsx"
 import { Pagination } from "./Pagination.jsx"
 
 import styles from "./JobResults.module.css"
@@ -22,6 +22,7 @@ export function JobResults({ data, totalPages, currentPage, pageChangeFunction }
                     {data.map(job => (
                         <JobCard 
                             key={job.id}
+                            id={job.id}
                             job={job}
                         />
                     ))}

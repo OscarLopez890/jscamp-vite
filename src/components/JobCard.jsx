@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import styles from "./JobCard.module.css";
 
 export function JobCard({id, job}) {
@@ -25,13 +26,20 @@ export function JobCard({id, job}) {
             data-contract={job.data.modalidad}
             data-technologies={job.data.technology.join(', ')}>
             <div>
-                <h3>{job.titulo}</h3>
+                <Link to={`/jobs/${id}`} className={styles.jobTitle}>
+                    <h3>{job.titulo}</h3>
+                </Link>
                 <small>{job.company} | {job.ubicacion}</small>
                 <small>{job.data.modalidad} | {job.data.nivel}</small>
                 <p>{job.data.technology.join(', ')}</p>
                 <p>{job.descripcion}</p>
             </div>
             <div className={styles.applySection}>
+                <div className={styles.actions}>
+                    <Link to={`/jobs/${id}`} className={styles.detailsButton}>
+                        Ver detalles
+                    </Link>
+                </div>
                 <button 
                     disabled={isApplied}
                     onClick={handleClick} 
