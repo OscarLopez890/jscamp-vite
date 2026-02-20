@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "../hooks/useRouter.jsx";
+import { useSearchParams } from "react-router";
 
 export function useFilters() {
   const [currentPage, setCurrentPage] = useState(() => {
@@ -7,15 +7,15 @@ export function useFilters() {
     const page = Number(params.get('page') || 1);
     return page;
   });
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [filters, setFilters] = useState(() => {
     try {
       const savedFilters = localStorage.getItem('filters');
-      const params = new URLSearchParams(window.location.search);
-      const text = params.get('text') || "";
-      const technology = params.get('technology') || "";
-      const location = params.get('location') || "";
-      const experience = params.get('experience') || "";
+      const text = searchParams.get('text') || "";
+      const technology = searchParams.get('technology') || "";
+      const location = searchParams.get('location') || "";
+      const experience = searchParams.get('experience') || "";
 
       if (text === "" && technology === "" && location === "" && experience === "") {
         return savedFilters ? JSON.parse(savedFilters) : {
@@ -53,8 +53,6 @@ export function useFilters() {
     setCurrentPage(1);
   }
 
-  const { navigateTo } = useRouter();
-
   useEffect(() => {
     async function fetchData() {
         try {
@@ -84,18 +82,17 @@ export function useFilters() {
   }, [filters, currentPage]);
 
   useEffect(() => {
-    const params = new URLSearchParams();
-    if (filters.text) params.append('text', filters.text);
-    if (filters.technology) params.append('technology', filters.technology);
-    if (filters.location) params.append('location', filters.location);
-    if (filters.experience) params.append('level', filters.experience);
-    if (currentPage > 1) params.append('page', currentPage);
+    setSearchParams((params) => {
+      if (filters.text) params.set('text', filters.text);
+      if (filters.technology) params.set('technology', filters.technology);
+      if (filters.location) params.set('location', filters.location);
+      if (filters.experience) params.set('level', filters.experience);
+      if (currentPage > 1) params.set('page', currentPage);
 
-    const newURL = params.toString()
-    ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+      return params;
+    });
     
-    navigateTo(newURL);
-  }, [filters, currentPage, navigateTo]);
+  }, [filters, currentPage, setSearchParams]);
 
   useEffect(() => {
     try {
