@@ -50,3 +50,9 @@ header div a {
   font-weight: 700;
   text-decoration: none;
 }
+
+.navLinkActive {
+  color: var(--primary);
+  pointer-events: none;
+  border-bottom: #334155 2px solid;
+}
