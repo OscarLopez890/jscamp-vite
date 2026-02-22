@@ -4,7 +4,7 @@ import { useFilters } from "../hooks/useFilters.jsx";
 import { ErrorMessage } from "../components/ErrorMessage.jsx";
 import styles from "../components/Spinner.module.css";
 
-export function Search() {
+export default function Search() {
   const {
     jobs,
     loading,

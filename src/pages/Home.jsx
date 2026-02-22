@@ -1,6 +1,6 @@
 import { useRouter } from "../hooks/useRouter.jsx";
 
-export function Home() {
+export default function Home() {
     const { navigateTo } = useRouter();
     
     const handleSubmit = (event) => {

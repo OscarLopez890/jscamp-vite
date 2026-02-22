@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../components/Contact.module.css";
 
-export function Contact(){
+export default function Contact(){
 
     const [submitted, setSubmitted] = useState(false);
 
