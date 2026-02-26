@@ -2,7 +2,7 @@ import styles from "./Header.module.css"
 import { Link } from "./Link.jsx"
 import { NavLink } from "react-router"
 
-export function Header(){
+export function Header({isLoggedIn, onLogin, onLogout}) {
   return (
     <header className={styles.header}>
       <NavLink to="/" style={{textDecoration: 'none'}}>
@@ -18,7 +18,11 @@ export function Header(){
       </nav>
       <div>
           <a href="register.html">Publicar un empleo</a>
-          <a href="login.html">Iniciar Sesión</a>
+            {isLoggedIn ? (
+              <button onClick={onLogout} style={{marginLeft: '1rem'}}>Cerrar Sesión</button>
+            ) : (
+              <button onClick={onLogin} style={{marginLeft: '1rem'}}>Iniciar Sesión</button>
+            )}
           <devjobs-avatar
           service = "github"
           username = "torvalds"

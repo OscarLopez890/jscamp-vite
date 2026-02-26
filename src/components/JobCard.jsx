@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import styles from "./JobCard.module.css";
 
-export function JobCard({id, job}) {
+export function JobCard({id, job, isLoggedIn}) {
     const [
         isApplied, 
         setIsApplied
@@ -41,7 +41,7 @@ export function JobCard({id, job}) {
                     </Link>
                 </div>
                 <button 
-                    disabled={isApplied}
+                    disabled={isApplied || !isLoggedIn}
                     onClick={handleClick} 
                     className={`${styles.buttonApplyJob} ${buttonClassApplied}`}>
                     {buttonText}
