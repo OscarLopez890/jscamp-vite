@@ -3,7 +3,7 @@ import { Pagination } from "./Pagination.jsx"
 
 import styles from "./JobResults.module.css"
 
-export function JobResults({ data, totalPages, currentPage, pageChangeFunction, isLoggedIn }) {
+export function JobResults({ data, totalPages, currentPage, pageChangeFunction }) {
 
     const handlePageChangeInternal = (newPage) => {
         pageChangeFunction(newPage);
@@ -24,7 +24,6 @@ export function JobResults({ data, totalPages, currentPage, pageChangeFunction, 
                             key={job.id}
                             id={job.id}
                             job={job}
-                            isLoggedIn={isLoggedIn}
                         />
                     ))}
                 </div>

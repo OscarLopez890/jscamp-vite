@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from "../context/AuthContext.jsx"
 import styles from "./JobCard.module.css";
 
-export function JobCard({id, job, isLoggedIn}) {
+export function JobCard({id, job}) {
+    const { isLoggedIn } = useContext(AuthContext)
     const [
         isApplied, 
         setIsApplied

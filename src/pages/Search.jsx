@@ -4,7 +4,7 @@ import { useFilters } from "../hooks/useFilters.jsx";
 import { ErrorMessage } from "../components/ErrorMessage.jsx";
 import styles from "../components/Spinner.module.css";
 
-export default function Search({ isLoggedIn }) {
+export default function Search() {
   const {
     jobs,
     loading,
@@ -33,7 +33,6 @@ export default function Search({ isLoggedIn }) {
               totalPages={totalPages}
               currentPage={currentPage}
               pageChangeFunction={handlePageChange}
-              isLoggedIn={isLoggedIn}
             />
             }
         </main>

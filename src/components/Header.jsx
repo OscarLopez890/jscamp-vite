@@ -1,8 +1,12 @@
 import styles from "./Header.module.css"
 import { Link } from "./Link.jsx"
 import { NavLink } from "react-router"
+import { useContext } from "react"
+import { AuthContext } from "../context/AuthContext.jsx"
 
-export function Header({isLoggedIn, onLogin, onLogout}) {
+export function Header() {
+  const { isLoggedIn, handleLogin, handleLogout } = useContext(AuthContext)
+
   return (
     <header className={styles.header}>
       <NavLink to="/" style={{textDecoration: 'none'}}>
@@ -19,9 +23,9 @@ export function Header({isLoggedIn, onLogin, onLogout}) {
       <div>
           <a href="register.html">Publicar un empleo</a>
             {isLoggedIn ? (
-              <button onClick={onLogout} style={{marginLeft: '1rem'}}>Cerrar Sesión</button>
+              <button onClick={handleLogout} style={{marginLeft: '1rem'}}>Cerrar Sesión</button>
             ) : (
-              <button onClick={onLogin} style={{marginLeft: '1rem'}}>Iniciar Sesión</button>
+              <button onClick={handleLogin} style={{marginLeft: '1rem'}}>Iniciar Sesión</button>
             )}
           <devjobs-avatar
           service = "github"
